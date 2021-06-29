@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WallController;
 use App\Http\Controllers\FilmController;
+use App\Http\Controllers\DashboardController;
+
 
 
 /*
@@ -16,36 +18,19 @@ use App\Http\Controllers\FilmController;
 |
 */
 
-Route::get('/forum', function () {
-    return view('forum');
-})->middleware(['auth'])->name('forum');
-
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-
-
-
-
-
-
-require __DIR__.'/auth.php';
-
-
-
-//-------------------------------------------------------------------------------------------//
-
-
-
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
 
 Route::get('/films', [FilmController::class, 'index'])->middleware(['auth'])->name('films');
 
 Route::get('/film/{id_film}', [FilmController::class, 'show'])->middleware(['auth'])->name('film');
+
+
+
+require __DIR__.'/auth.php';
 
 //-------------------------------------------------------------------------------------------//
 
@@ -63,6 +48,3 @@ Route::post('/SavePost', [WallController::class, 'save'])->middleware(['auth'])-
 Route::get('/plop/{param?}', function ($param = null) {
     echo  'plop = ' .$param;
 })->middleware(['auth'])->name('plop');
-
-
-
