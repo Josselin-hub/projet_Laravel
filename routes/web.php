@@ -16,13 +16,36 @@ use App\Http\Controllers\FilmController;
 |
 */
 
+Route::get('/forum', function () {
+    return view('forum');
+})->middleware(['auth'])->name('forum');
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+
+
+
+
+
+
+require __DIR__.'/auth.php';
+
+
+
+//-------------------------------------------------------------------------------------------//
+
+
+
+
 Route::get('/films', [FilmController::class, 'index'])->middleware(['auth'])->name('films');
 
 Route::get('/film/{id_film}', [FilmController::class, 'show'])->middleware(['auth'])->name('film');
-
-
-
-
 
 //-------------------------------------------------------------------------------------------//
 
@@ -42,13 +65,4 @@ Route::get('/plop/{param?}', function ($param = null) {
 })->middleware(['auth'])->name('plop');
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-require __DIR__.'/auth.php';
 
