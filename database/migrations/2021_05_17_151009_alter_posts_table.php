@@ -15,7 +15,9 @@ class AlterPostsTable extends Migration
     {
         Schema::table('posts', function (Blueprint $table){
             $table->integer('user_id')->after('id')->default(null)->nullable();
-    });
+            $table->integer('film_id')->after('user_id')->default(null)->nullable();
+
+        });
     }
 
     /**
