@@ -2,9 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WallController;
-use App\Http\Controllers\FilmController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FilmControll;
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UserprofileController;
 
 
 /*
@@ -28,9 +29,10 @@ Route::get('/films', [FilmController::class, 'index'])->middleware(['auth'])->na
 
 Route::get('/film/{id_film}', [FilmController::class, 'show'])->middleware(['auth'])->name('film');
 
+Route::get('/profile/{id_profile}', [UserprofileController::class, 'index'])->middleware(['auth'])->name('profile');
 
 
-require __DIR__.'/auth.php';
+Route::get('/profile', [UserprofileController::class, 'update'])->middleware(['auth'])->name('profile_update');
 
 //-------------------------------------------------------------------------------------------//
 
@@ -45,6 +47,5 @@ Route::get('/DeletePost/{id_post}', [WallController::class, 'delete'])->middlewa
 Route::post('/SavePost', [WallController::class, 'save'])->middleware(['auth'])->name('post_save');
 
 
-Route::get('/plop/{param?}', function ($param = null) {
-    echo  'plop = ' .$param;
-})->middleware(['auth'])->name('plop');
+
+
