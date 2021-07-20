@@ -19,4 +19,5 @@ class FilmController extends Controller
         $film = Film::find($request->id_film);
         return view('film', ['film'=> $film]);
     }
+
 }

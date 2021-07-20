@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Models\Film;
+use Illuminate\Database\Query\Builder;
+use DB;
 /**
  * Class DashboardController
  * @package App\Http\Controllers
@@ -15,7 +18,12 @@ class DashboardController extends Controller
      */
     function index()
     {
-        $posts= Post::paginate(5);
-        return view('dashboard', ['posts'=> $posts]);
+
+        $lastFilms = Film::getLastFilms();
+        //dd($lastFilms);
+        $lastcomments = Post::getCommentairesByLastFilms();
+        //dd($lastcomments);
+        return view('dashboard', ['lastfilm'=> $lastFilms], ['lastcomments' => $lastcomments]);
+
     }
 }
