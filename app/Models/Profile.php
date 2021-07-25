@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Profile extends Model
 {
+    protected $primaryKey = 'id_profile';
     use HasFactory;
 }
