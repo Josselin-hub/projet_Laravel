@@ -28,7 +28,9 @@ Route::get('/films', [FilmController::class, 'index'])->middleware(['auth'])->na
 
 Route::get('/film/{id_film}', [FilmController::class, 'show'])->middleware(['auth'])->name('film');
 
+Route::get('/profile/{id_profile}', [UserprofileController::class, 'index'])->middleware(['auth'])->name('profile');
 
+Route::get('/profile', [UserprofileController::class, 'update'])->middleware(['auth'])->name('profile_update');
 
 require __DIR__.'/auth.php';
 
