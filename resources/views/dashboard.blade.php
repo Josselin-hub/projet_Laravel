@@ -17,17 +17,16 @@
                                 [<a href="film/{{$film->id_film}}">{{$film->titre}}</a>] <br>
                             </li>
                             {{--Affiche les trois derniers commentaires liés au film--}}
+                            @php $count = 0 @endphp
                             @foreach($lastcomments as $comment)
-                                @if($loop->index == 0)
+                                @if($comment->film_id != $film->id_film)
                                     @continue
                                 @endif
-                                    @if($comment->film_id === $film->id_film)
-                                        <li>
-                                            {{$comment -> content}}
-                                        </li>
-                                    @endif
-                                @if($loop->index == 3)
-                                    @break($loop->index = 0)
+                            @if($count < 3)
+                                    <li>
+                                        {{$comment -> content}}
+                                        @php $count += 1 @endphp
+                                    </li>
                                 @endif
                             @endforeach
                             <br>
