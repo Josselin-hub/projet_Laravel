@@ -15,8 +15,8 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $profile= Profile::paginate(50);
-        return view('profile', ['profile'=> $profile]);
+        $profiles= Profile::paginate(50);
+        return view('profiles', ['profiles'=> $profiles]);
     }
 
     /**
@@ -72,9 +72,17 @@ class ProfileController extends Controller
      */
     public function update(Request $request, Profile $profile)
     {
-        //
+        $profile = Profile::find($request->id_profile);
+        return view('updateProfile', ['profile' => $profile]);
     }
 
+    function save(Request $request)
+    {
+       $profile = Profile::find($request->id);
+       $profile->save();
+       return redirect(['profile' => $profile]);
+    }
+    
     /**
      * Remove the specified resource from storage.
      *
