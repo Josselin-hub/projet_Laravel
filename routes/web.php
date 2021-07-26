@@ -18,6 +18,7 @@ use App\Http\Controllers\ProfileController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+require __DIR__.'/auth.php';
 
 Route::get('/', function () {
     return view('welcome');
@@ -29,13 +30,15 @@ Route::get('/films', [FilmController::class, 'index'])->middleware(['auth'])->na
 
 Route::get('/film/{id_film}', [FilmController::class, 'show'])->middleware(['auth'])->name('film');
 
-Route::get('/profile/{id_profile}', [ProfileController::class, 'index'])->middleware(['auth'])->name('profile');
+Route::get('/profile/{id_profile}', [ProfileController::class, 'show'])->middleware(['auth'])->name('profile');
 
-Route::get('/profile', [ProfileController::class, 'show'])->middleware(['auth'])->name('profile');
+Route::get('/profile/{id_profile}', [ProfileController::class, 'update'])->middleware(['auth'])->name('profile_update');
 
-// Route::get('/profile', [ProfileController::class, 'update'])->middleware(['auth'])->name('profile_update');
+Route::get('/profile/{id_profile}', [ProfileController::class, 'delete'])->middleware(['auth'])->name('profile_delete');
 
-require __DIR__.'/auth.php';
+Route::get('/profiles', [ProfileController::class, 'index'])->middleware(['auth'])->name('profiles');
+
+
 
 //-------------------------------------------------------------------------------------------//
 
