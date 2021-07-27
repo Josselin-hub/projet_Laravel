@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        Mon profile<br>
+        Mon profil<br>
         </h2>
     </x-slot>
 
@@ -11,7 +11,7 @@
                 <div class="p-6 bg-white border-b border-gray-200"><br><br>
                     Pseudo: {{$profile->name_profile}}
                     <br><br>
-                    Type du profile : {{$profile->type_profile}}
+                    Type du profil : {{$profile->type_profile}}
                     <br><br>
 
                 </div>
