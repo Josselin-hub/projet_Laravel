@@ -15,7 +15,7 @@
                     <ul>
                         @foreach($profiles as $profile)
                             <li>
-                                [<a href="profile/{{$profile->id_profile}}">{{$profile->id_profile}}</a>]
+                                [<a href="profile/{{$profile->id}}">{{$profile->id}}</a>]
                             </li>
                         @endforeach
                         <br>

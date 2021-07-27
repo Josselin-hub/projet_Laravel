@@ -3,130 +3,61 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
+        <link rel="shortcut icon" href="../image/favicon.ico" type="image/x-icon"/>
+        <title>Kinéto</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-t{border-top-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}}
-        </style>
-
+        <link href="https://bootswatch.com/5/materia/bootstrap.min.css" rel="stylesheet">
+        <link href="https://bootswatch.com/5/materia/bootstrap.css" rel="stylesheet">
         <style>
             body {
                 font-family: 'Nunito', sans-serif;
             }
         </style>
     </head>
-    <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                    <svg viewBox="0 0 651 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto text-gray-700 sm:h-20">
-                        <g clip-path="url(#clip0)" fill="#EF3B2D">
-                            <path d="M248.032 44.676h-16.466v100.23h47.394v-14.748h-30.928V44.676zM337.091 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.431 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162-.001 2.863-.479 5.584-1.432 8.161zM463.954 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.432 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162 0 2.863-.479 5.584-1.432 8.161zM650.772 44.676h-15.606v100.23h15.606V44.676zM365.013 144.906h15.607V93.538h26.776V78.182h-42.383v66.724zM542.133 78.182l-19.616 51.096-19.616-51.096h-15.808l25.617 66.724h19.614l25.617-66.724h-15.808zM591.98 76.466c-19.112 0-34.239 15.706-34.239 35.079 0 21.416 14.641 35.079 36.239 35.079 12.088 0 19.806-4.622 29.234-14.688l-10.544-8.158c-.006.008-7.958 10.449-19.832 10.449-13.802 0-19.612-11.127-19.612-16.884h51.777c2.72-22.043-11.772-40.877-33.023-40.877zm-18.713 29.28c.12-1.284 1.917-16.884 18.589-16.884 16.671 0 18.697 15.598 18.813 16.884h-37.402zM184.068 43.892c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002-35.648-20.524a2.971 2.971 0 00-2.964 0l-35.647 20.522-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v38.979l-29.706 17.103V24.493a3 3 0 00-.103-.776c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002L40.098 1.396a2.971 2.971 0 00-2.964 0L1.487 21.919l-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v122.09c0 1.063.568 2.044 1.489 2.575l71.293 41.045c.156.089.324.143.49.202.078.028.15.074.23.095a2.98 2.98 0 001.524 0c.069-.018.132-.059.2-.083.176-.061.354-.119.519-.214l71.293-41.045a2.971 2.971 0 001.489-2.575v-38.979l34.158-19.666a2.971 2.971 0 001.489-2.575V44.666a3.075 3.075 0 00-.106-.774zM74.255 143.167l-29.648-16.779 31.136-17.926.001-.001 34.164-19.669 29.674 17.084-21.772 12.428-43.555 24.863zm68.329-76.259v33.841l-12.475-7.182-17.231-9.92V49.806l12.475 7.182 17.231 9.92zm2.97-39.335l29.693 17.095-29.693 17.095-29.693-17.095 29.693-17.095zM54.06 114.089l-12.475 7.182V46.733l17.231-9.92 12.475-7.182v74.537l-17.231 9.921zM38.614 7.398l29.693 17.095-29.693 17.095L8.921 24.493 38.614 7.398zM5.938 29.632l12.475 7.182 17.231 9.92v79.676l.001.005-.001.006c0 .114.032.221.045.333.017.146.021.294.059.434l.002.007c.032.117.094.222.14.334.051.124.088.255.156.371a.036.036 0 00.004.009c.061.105.149.191.222.288.081.105.149.22.244.314l.008.01c.084.083.19.142.284.215.106.083.202.178.32.247l.013.005.011.008 34.139 19.321v34.175L5.939 144.867V29.632h-.001zm136.646 115.235l-65.352 37.625V148.31l48.399-27.628 16.953-9.677v33.862zm35.646-61.22l-29.706 17.102V66.908l17.231-9.92 12.475-7.182v33.841z"/>
-                        </g>
-                    </svg>
-                </div>
-
-                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                    <div class="grid grid-cols-1 md:grid-cols-2">
-                        <div class="p-6">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel.com/docs" class="underline text-gray-900 dark:text-white">Documentation</a></div>
+    <body>
+                                <div class="card text-white bg-dark mb-3" style="max-width: 30rem; margin: 100px auto ; padding: 100px 0 ;">
+                            <div class="card-header" style="margin: auto;">
+                                <svg width="150" height="70" viewBox="0 0 867 336" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M291.658 102.491V277.042C291.65 284.755 288.729 292.149 283.537 297.603C278.344 303.057 271.304 306.125 263.96 306.134H70.0727C51.7141 306.111 34.1135 298.442 21.132 284.807C8.15048 271.172 0.848224 252.686 0.827148 233.404L0.827148 58.8533C0.835396 51.1403 3.75624 43.7457 8.94888 38.2918C14.1415 32.8379 21.1819 29.7701 28.5254 29.7615H222.413C240.771 29.7836 258.372 37.4533 271.354 51.0879C284.335 64.7225 291.637 83.2087 291.658 102.491ZM409.404 68.0917C407.305 66.8132 404.924 66.1357 402.498 66.1271C400.072 66.1185 397.687 66.779 395.58 68.0426L326.335 109.602C324.215 110.874 322.453 112.713 321.228 114.931C320.002 117.148 319.357 119.667 319.357 122.232V213.663C319.357 216.228 320.002 218.747 321.228 220.965C322.453 223.182 324.215 225.021 326.335 226.293L395.58 267.852C397.687 269.116 400.072 269.777 402.498 269.769C404.923 269.76 407.305 269.083 409.403 267.804C411.501 266.525 413.242 264.69 414.453 262.482C415.663 260.274 416.3 257.771 416.3 255.223V80.6721C416.301 78.1244 415.664 75.6213 414.453 73.4134C413.243 71.2055 411.502 69.3704 409.404 68.0917Z" fill="url(#paint0_linear)"/>
+                                    <path d="M42.304 261L75.136 85.896L78.304 70.92H139.936L103.648 261H42.304ZM220.576 244.008C215.392 259.176 202.816 266.76 182.848 266.76C168.064 266.76 155.584 257.928 145.408 240.264C135.04 222.6 128.896 199.368 126.976 170.568C148.096 131.976 165.952 104.712 180.544 88.776C194.56 73.608 208.864 66.024 223.456 66.024C231.328 66.024 238.048 68.136 243.616 72.36C249.376 76.584 252.928 82.056 254.272 88.776C247.744 91.464 242.944 93.864 239.872 95.976C232.192 101.736 223.168 111.048 212.8 123.912L186.592 155.304C182.368 160.296 179.392 163.944 177.664 166.248C180.544 182.376 186.304 198.408 194.944 214.344C203.2 229.512 211.744 239.4 220.576 244.008Z" fill="white"/>
+                                    <path d="M398.251 219.736C396.08 229.728 388.857 235.829 376.58 238.038C370.255 239.176 364.718 237.932 359.969 234.306C355.929 231.064 353.563 227.521 352.871 223.677C351.064 213.633 350.691 198.401 351.753 177.982L352.142 140.657L389.233 130.141L388.464 190.963C388.007 200.519 388.069 206.909 388.649 210.133C389.921 217.202 393.122 220.402 398.251 219.736ZM350.837 114.199C349.967 109.362 351.281 105.285 354.781 101.967C358.404 98.6262 363.13 96.4314 368.959 95.3826C374.787 94.3337 379.672 94.7989 383.613 96.7782C387.678 98.7352 390.145 102.132 391.015 106.968C391.886 111.804 390.56 115.82 387.038 119.014C383.64 122.186 379.027 124.296 373.199 125.345C367.37 126.394 362.373 126.013 358.206 124.203C354.164 122.37 351.707 119.035 350.837 114.199Z" fill="white"/>
+                                    <path d="M533 225C516.867 225 508.8 218.733 508.8 206.2C508.933 202.733 509.533 198.067 510.6 192.2L514.2 173.8C517.8 156.467 519.6 145.867 519.6 142C519.6 134.267 517.333 130.4 512.8 130.4C505.2 130.4 499.4 140.333 495.4 160.2L483.6 221L443.4 225L464.2 118.8L497 115L493.8 134.6C500.067 121.533 512.8 115 532 115C541.333 115 547.933 117 551.8 121C555.8 124.867 557.8 131.2 557.8 140C557.8 148.267 555.667 162.067 551.4 181.4C549.4 190.067 548.4 196.067 548.4 199.4C548.4 202.6 549.267 205.133 551 207C552.867 208.867 555.133 209.933 557.8 210.2C556.467 214.733 553.467 218.333 548.8 221C544.267 223.667 539 225 533 225ZM654.791 187.2C658.124 189.467 659.791 193.133 659.791 198.2C659.791 203.133 658.524 207.2 655.991 210.4C653.457 213.6 650.124 216.267 645.991 218.4C637.457 222.8 628.591 225 619.391 225C610.191 225 602.857 224 597.391 222C592.057 220 587.591 217.133 583.991 213.4C576.924 206.333 573.391 196.333 573.391 183.4C573.391 163.267 578.857 147.067 589.791 134.8C601.524 121.6 617.591 115 637.991 115C650.657 115 660.124 117.667 666.391 123C671.057 127 673.391 132.267 673.391 138.8C673.391 162.267 653.124 174 612.591 174C612.057 177.467 611.791 180.667 611.791 183.6C611.791 189.733 613.124 194 615.791 196.4C618.591 198.667 622.524 199.8 627.591 199.8C632.657 199.8 637.857 198.667 643.191 196.4C648.657 194 652.524 190.933 654.791 187.2ZM613.991 165.4C623.457 165.4 630.924 162.467 636.391 156.6C641.857 151 644.591 143.733 644.591 134.8C644.591 131.733 643.991 129.4 642.791 127.8C641.724 126.067 640.057 125.2 637.791 125.2C635.524 125.2 633.391 125.667 631.391 126.6C629.524 127.4 627.591 129.267 625.591 132.2C620.657 138.867 616.791 149.933 613.991 165.4ZM667.391 67.2C672.191 69.0667 674.591 73.4667 674.591 80.4C674.591 86.2667 671.791 91.0667 666.191 94.8C661.524 98 655.791 100.2 648.991 101.4L624.391 106L620.191 96.4L667.391 67.2ZM683.436 201C683.436 197.4 684.369 191.067 686.236 182L696.836 128H685.036L685.836 122C701.836 117.2 717.569 108.933 733.036 97.2H742.636L737.836 119H753.436L751.636 128H736.236L726.036 182C724.303 190.267 723.436 195.8 723.436 198.6C723.436 205 726.236 208.867 731.836 210.2C730.503 214.733 727.436 218.333 722.636 221C717.836 223.667 712.036 225 705.236 225C698.436 225 693.103 222.867 689.236 218.6C685.369 214.333 683.436 208.467 683.436 201ZM795.32 225C765.987 225 751.32 211.2 751.32 183.6C751.32 164 756.72 147.867 767.52 135.2C778.987 121.733 794.654 115 814.52 115C828.92 115 839.787 118.333 847.12 125C854.454 131.667 858.12 142 858.12 156C858.12 177.333 852.387 194.2 840.92 206.6C829.72 218.867 814.52 225 795.32 225ZM800.52 138C798.92 141.6 797.454 146.133 796.12 151.6C794.92 156.933 793.52 163.867 791.92 172.4C790.32 180.933 789.52 190.467 789.52 201C789.52 204.467 790.054 207.333 791.12 209.6C792.32 211.867 794.454 213 797.52 213C800.587 213 803.054 212.267 804.92 210.8C806.92 209.333 808.654 206.867 810.12 203.4C812.787 197.267 815.187 188.533 817.32 177.2C819.454 165.733 820.587 157.533 820.72 152.6C820.987 147.667 821.12 143.4 821.12 139.8C821.12 136.067 820.587 133 819.52 130.6C818.454 128.2 816.387 127 813.32 127C810.387 127 807.92 127.933 805.92 129.8C803.92 131.667 802.12 134.4 800.52 138Z" fill="white"/>
+                                    <defs>
+                                    <linearGradient id="paint0_linear" x1="228" y1="117.5" x2="291" y2="277" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#51C0FF"/>
+                                    <stop offset="1" stop-color="#1DCB8C"/>
+                                    </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+                            
+                            <div class="card-body" style="margin: auto;">
+                                <p class="card-text">
+                                    @if (Route::has('login'))
+                                        @auth
+                                            <a href="{{ url('/dashboard') }}" class="btn btn-dark">Dashboard</a>
+                                        @else
+                                            <a href="{{ route('login') }}" class="btn btn-secondary">Connexion</a>
+                                            
+                                            @if (Route::has('register'))
+                                            <a href="{{ route('register') }}" class="btn btn-primary">Inscription</a>
+                                            @endif
+                                        @endauth
+                                    @endif
+                                </p>
+                            </div>
                             </div>
 
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel has wonderful, thorough documentation covering every aspect of the framework. Whether you are new to the framework or have previous experience with Laravel, we recommend reading all of the documentation from beginning to end.
-                                </div>
+                            <div class="card text-white bg-primary mb-3" style="max-width: 40rem; margin: 100px auto ;">
+                            <div class="card-header">Kinéto, c'est quoi ? </div>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    Un réseau social autour des films, où tu peux discuter avec d'autres passionés sur les dernières sorties.
+                                    si tu es un cinéphile, Kinéto est fait pour toi! 
+                                </p>
+                                <b>N'hésites pas à nous rejoindre!</b>
                             </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laracasts.com" class="underline text-gray-900 dark:text-white">Laracasts</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel-news.com/" class="underline text-gray-900 dark:text-white">Laravel News</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white">Vibrant Ecosystem</div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel's robust library of first-party tools and libraries, such as <a href="https://forge.laravel.com" class="underline">Forge</a>, <a href="https://vapor.laravel.com" class="underline">Vapor</a>, <a href="https://nova.laravel.com" class="underline">Nova</a>, and <a href="https://envoyer.io" class="underline">Envoyer</a> help you take your projects to the next level. Pair them with powerful open source libraries like <a href="https://laravel.com/docs/billing" class="underline">Cashier</a>, <a href="https://laravel.com/docs/dusk" class="underline">Dusk</a>, <a href="https://laravel.com/docs/broadcasting" class="underline">Echo</a>, <a href="https://laravel.com/docs/horizon" class="underline">Horizon</a>, <a href="https://laravel.com/docs/sanctum" class="underline">Sanctum</a>, <a href="https://laravel.com/docs/telescope" class="underline">Telescope</a>, and more.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
-                    <div class="text-center text-sm text-gray-500 sm:text-left">
-                        <div class="flex items-center">
-                            <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" class="-mt-px w-5 h-5 text-gray-400">
-                                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                            </svg>
-
-                            <a href="https://laravel.bigcartel.com" class="ml-1 underline">
-                                Shop
-                            </a>
-
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="ml-4 -mt-px w-5 h-5 text-gray-400">
-                                <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                            </svg>
-
-                            <a href="https://github.com/sponsors/taylorotwell" class="ml-1 underline">
-                                Sponsor
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
-                    </div>
-                </div>
-            </div>
-        </div>
     </body>
 </html>
