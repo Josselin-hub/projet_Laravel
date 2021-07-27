@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WallController;
 use App\Http\Controllers\FilmController;
@@ -31,6 +32,9 @@ Route::get('/films', [FilmController::class, 'index'])->middleware(['auth'])->na
 Route::get('/film/{id_film}', [FilmController::class, 'show'])->middleware(['auth'])->name('film');
 
 Route::post('/film/{id_film}', [FilmController::class, 'create'])->middleware(['auth'])->name('film_comment');
+
+Route::post('/search', [SearchController::class, 'index'])->middleware(['auth'])->name('search');
+
 
 //-------------------------------------------------------------------------------------------//
 Route::get('/profiles', [ProfileController::class, 'index'])->middleware(['auth'])->name('profiles');

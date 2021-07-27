@@ -20,9 +20,7 @@ class DashboardController extends Controller
     {
 
         $lastFilms = Film::getLastFilms();
-        //dd($lastFilms);
         $lastcomments = Post::getCommentairesByLastFilms();
-        //dd($lastcomments);
         return view('dashboard', ['lastfilm'=> $lastFilms], ['lastcomments' => $lastcomments]);
 
     }
