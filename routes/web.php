@@ -41,7 +41,7 @@ Route::get('/profiles', [ProfileController::class, 'index'])->middleware(['auth'
 
 Route::get('/profile/{id_profile}', [ProfileController::class, 'show'])->middleware(['auth'])->name('profile');
 
-Route::get('/UpdateProfile/{id_profile}', [ProfileController::class, 'update'])->middleware(['auth'])->name('profile_update');
+Route::get('/profile/UpdateProfile/{id_profile}', [ProfileController::class, 'update'])->middleware(['auth'])->name('profile_update');
 
 Route::get('/DeleteProfile/{id_profile}', [ProfileController::class, 'delete'])->middleware(['auth'])->name('profile_delete');
 
