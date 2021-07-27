@@ -1,27 +1,26 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Films
+        Tous les profils<br>
         </h2>
     </x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    Liste des films <br><br>
+            <div class="p-6 bg-white border-b border-gray-200">
+                    Liste des profils <br><br>
 
                     <br><br>
                     <ul>
-                        @foreach($films as $film)
+                        @foreach($profiles as $profile)
                             <li>
-                                [<a href="film/{{$film->id_film}}">{{$film->titre}}</a>]
+                                [<a href="profile/{{$profile->id}}">{{$profile->id}}</a>]
                             </li>
                         @endforeach
                         <br>
 
                     </ul>
-                </div>
             </div>
         </div>
     </div>
