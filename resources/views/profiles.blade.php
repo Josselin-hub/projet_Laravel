@@ -7,21 +7,22 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-            <div class="p-6 bg-white border-b border-gray-200">
-                    Liste des profils <br><br>
-
-                    <br><br>
-                    <ul>
-                        @foreach($profiles as $profile)
-                            <li>
-                                [<a href="profile/{{$profile->id}}">{{$profile->id}}</a>]
-                            </li>
-                        @endforeach
-                        <br>
-
-                    </ul>
+            <h6>Liste des profils</h6>
+            <div class="grid grid-flow-col-4 grid-cols-4 gap-3">
+                @foreach($profiles as $profile)
+                    <div class="flex flex-row space-y-2 items-center justify-center h-full py-4 bg-gray-200 rounded-xl space-x-5">
+                        <div class="w-2/4">                                  
+                            <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full">
+                                <a href="profile/{{$profile->id}}">{{$profile->name_profile}}</a>
+                            </button>
+                        </div>
+                        <div class="w-auto h-">
+                            <img class="flex-1 h-full rounded-lg" src="https://via.placeholder.com/96x136" />
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
+
 </x-app-layout>
