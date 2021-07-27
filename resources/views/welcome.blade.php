@@ -37,7 +37,7 @@
                                 <p class="card-text">
                                     @if (Route::has('login'))
                                         @auth
-                                            <a href="{{ url('/dashboard') }}" class="btn btn-dark">Dashboard</a>
+                                            <a href="{{ url('/dashboard') }}" class="btn btn-dark">C'est parti!</a>
                                         @else
                                             <a href="{{ route('login') }}" class="btn btn-secondary">Connexion</a>
                                             
