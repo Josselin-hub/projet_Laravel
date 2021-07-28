@@ -42,6 +42,11 @@ class Film extends Model
         return $films;
     }
 
+    /**
+     * @param $request
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
+     * retourne les résultats d'une recherche par titre de film
+     */
     public static function searchFilms($request)
     {
         $films = DB::table('films')

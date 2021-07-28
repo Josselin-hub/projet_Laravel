@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -82,7 +82,7 @@ class ProfileController extends Controller
        $profile->save();
        return redirect(['profile' => $profile]);
     }
-    
+
     /**
      * Remove the specified resource from storage.
      *
