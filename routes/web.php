@@ -49,17 +49,6 @@ Route::post('/SaveProfile', [ProfileController::class, 'save'])->middleware(['au
 
 //-------------------------------------------------------------------------------------------//
 
-Route::get('/wall', [WallController::class, 'index'])->middleware(['auth'])->name('wall');
-
-Route::post('/wall', [WallController::class, 'create'])->middleware(['auth'])->name('post_create');
-
-Route::get('/UpdatePost/{id_post}', [WallController::class, 'update'])->middleware(['auth'])->name('post_update');
-
-Route::get('/DeletePost/{id_post}', [WallController::class, 'delete'])->middleware(['auth'])->name('post_delete');
-
-Route::post('/SavePost', [WallController::class, 'save'])->middleware(['auth'])->name('post_save');
 
 
-Route::get('/plop/{param?}', function ($param = null) {
-    echo  'plop = ' .$param;
-})->middleware(['auth'])->name('plop');
+
