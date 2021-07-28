@@ -28,19 +28,36 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                             <div class="py-12">
                                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                                    <h6>Les derniers films à l'affiche :</h6>
+                                    <b>Les derniers films à l'affiche :</b>
                                     {{--Affiche les trois derniers films--}}
                        
-                                    <div class="grid grid-flow-col-4 grid-cols-4 gap-3">
+                                    <div class="grid grid-flow-col-1 grid-cols-1 gap-3">
                                         @foreach($lastfilm as $film)
+
                                             <div class="flex flex- space-y-2 items-center justify-center h-full py-4 bg-gray-200 rounded-xl space-x-5">
                                                 <div class="w-2/4">                                  
-                                                    <button class="bg-transparent hover:bg-green-400 text-green-500 font-semibold hover:text-white py-2 px-4 border border-green-400 hover:border-transparent rounde">
+                                                    <button class="bg-transparent hover:bg-green-400 text-green-500 font-semibold hover:text-white py-1 px-4 border border-green-400 hover:border-transparent rounde">
                                                         <a href="film/{{$film->id_film}}">{{$film->titre}}</a>
                                                     </button>
                                                 </div>
                                                 <div class="w-auto h-">
                                                     <img class="flex-1 h-full rounded-lg" src="https://via.placeholder.com/96x136" />
+                                                </div>
+                                                <div class="w-auto">
+                                                <b>Commentaires :</b>
+                                                    {{--Affiche les trois derniers commentaires liés au film--}}
+                                                @php $count = 0 @endphp
+                                                @foreach($lastcomments as $comment)
+                                                    @if($comment->film_id != $film->id_film)
+                                                        @continue
+                                                    @endif
+                                                    @if($count < 3)
+                                                        <div class="p-6 bg-white border-b border-gray-200">
+                                                            {{$comment -> content}}
+                                                            @php $count += 1 @endphp
+                                                        </div>
+                                                    @endif
+                                                @endforeach
                                                 </div>
                                             </div>
                                         @endforeach
